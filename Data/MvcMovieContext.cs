@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using MvcMovie.Models;
 
+namespace MvcMovie.Data
+{
     public class MvcMovieContext : DbContext
     {
         public MvcMovieContext (DbContextOptions<MvcMovieContext> options)
@@ -14,3 +16,5 @@ using MvcMovie.Models;
 
         public DbSet<MvcMovie.Models.Movie> Movie { get; set; }
     }
+    
+}
