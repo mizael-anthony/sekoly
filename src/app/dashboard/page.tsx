@@ -9,6 +9,7 @@ import {
   HiViewBoards,
   HiOutlineUserGroup,
   HiMenu,
+  HiX
 } from "react-icons/hi";
 
 export default function DashboardPage() {
@@ -22,18 +23,26 @@ export default function DashboardPage() {
     <>
       <Button
         onClick={toggleSidebar}
-        className={`fixed top-4 left-4 z-50 sm:hidden`}
+        className={`fixed top-4 left-4 z-50 ${isSidebarOpen ? "hidden" : ""} sm:hidden`}
       >
         <HiMenu className="w-5 h-5" />
       </Button>
       <Sidebar className={`fixed top-0 left-0 z-40 w-64 h-screen transition-transform ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"} sm:translate-x-0`}>
-        <Sidebar.Logo
-          href="#"
-          img="https://flowbite.com/docs/images/logo.svg"
-          imgAlt="Flowbite logo"
-        >
-          Sekoly
-        </Sidebar.Logo>
+      <div className="flex items-center justify-between p-4">
+          <Sidebar.Logo
+            href="#"
+            img="https://flowbite.com/docs/images/logo.svg"
+            imgAlt="Flowbite logo"
+          >
+            Sekoly
+          </Sidebar.Logo>
+          <Button
+            onClick={toggleSidebar}
+            className="sm:hidden"
+          >
+            <HiX/>
+          </Button>
+        </div>
         <Sidebar.Items>
           <Sidebar.ItemGroup>
             <Sidebar.Item href="#" icon={HiChartPie}>
